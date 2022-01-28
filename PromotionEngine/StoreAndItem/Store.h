@@ -1,5 +1,4 @@
 #include<iostream>
-#include<Store.h>
 #include<list>
 using namespace std;
 class Store:public AbstractStoreClass
