@@ -11,6 +11,8 @@ The promotion engine should be modular to allow for more promotion types to be a
 
 
 **Test Setup**
+
+
 Unit price for SKU IDs
 A 50
 B 30
@@ -20,19 +22,23 @@ Active Promotions
 3 of A's for 130
 2 of B's for 45
 C & D for 30
-Scenario A
+
+**Scenario A**
+
 1 * A 50
 1 * B 30
 1 * C 20
 Total 100
-Scenario B
+
+**Scenario B**
+
 5 * A 130 + 2*50
 5 * B 45 + 45 + 30
 1 * C 28
 Total 370
 
-Classification: Internal https:lIconfluence.maerskdev.net/display/SCMP/Coding+Tests 2/2
-Scenario C
+**Scenario C**
+
 3 * A 130
 5 * B 45 + 45 + 1 * 30
 1 * C -
