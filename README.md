@@ -26,20 +26,29 @@ C & D for 30
 **Scenario A**
 
 1 * A 50
+
 1 * B 30
+
 1 * C 20
+
 Total 100
 
 **Scenario B**
 
 5 * A 130 + 2*50
+
 5 * B 45 + 45 + 30
+
 1 * C 28
+
 Total 370
 
 **Scenario C**
 
 3 * A 130
+
 5 * B 45 + 45 + 1 * 30
+
 1 * C -
+
 1 * D 30
