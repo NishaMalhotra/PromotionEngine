@@ -8,7 +8,7 @@ class cart
     public:
         Cart()
         {
-            Items = new List<CartItem>();
+            //Items = new List<CartItem>();
         }
         double TotalPrice()
         {
