@@ -1,15 +1,17 @@
+#pragma once
 #include<iostream>
 #include<string>
 #include<list>
+#include<CartItem.h>
 using namespace std;
-class cart 
+class Cart
 {
     private:
-        list<cartItem> ItemList();
+        list<CartItem> ItemList();
     public:
         Cart();
         double TotalPrice();
-        void AddItem(SKUitem item);
+        void AddItem(SKUItem item);
         void RemoveItem(string skuItemId);
         bool IsValidSKU(string sku);
 };
