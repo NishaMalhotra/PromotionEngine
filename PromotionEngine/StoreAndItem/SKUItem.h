@@ -1,12 +1,14 @@
+#pragma once
 #include<iostream>
 #include<Store.h>
 #include<list>
 using namespace std;
-class SKUItem 
+class SKUItem
 {
     public:
-        SKUitem(string id, double unitPrice);
-        string getID();  
+        SKUItem(string id, double unitPrice);
+        string getID();
         double getUnitPrice();
         void UpdateUnitPrice(double price);
 };
+
