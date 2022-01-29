@@ -1,3 +1,4 @@
+#pragma once
 #include<iostream>
 #include<List>
 using namespace std;
@@ -11,3 +12,4 @@ class TotalFixedPrice:public PromotionRules
         bool IsApplicable(Cart cart);
         string ToString();
 };
+
