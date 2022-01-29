@@ -2,6 +2,7 @@
 #include<iostream>
 #include<Store.h>
 #include<list>
+#include<string.h>
 using namespace std;
 class SKUItem
 {
