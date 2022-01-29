@@ -1,3 +1,4 @@
+#pragma once
 #include<iostream>
 using namespace std;
 class BuyNForFixedPrice:public PromotionRules
@@ -12,3 +13,4 @@ class BuyNForFixedPrice:public PromotionRules
         bool IsApplicable(Cart cart);
         string ToString();
 };
+
