@@ -1,8 +1,9 @@
+#pragma once
 #include<iostream>
 #include<list>
 using namespace std;
-class Store:public AbstractStoreClass
-{
+class Store//:public AbstractStoreClass
+{/*
   public:
     Store();
     Cart Cart();
@@ -26,4 +27,5 @@ class Store:public AbstractStoreClass
     float GetCartTotal();
     Cart GetCart();
     bool IsValidSKU(string sku);
-};
+*/};
+
