@@ -6,8 +6,8 @@
 using namespace std;
 class SKUItem
 {
-    String Id;
-    double UnitPrice;
+    String id;
+    double unitPrice;
     public:
         SKUItem(string id, double unitPrice);
         string getID();
