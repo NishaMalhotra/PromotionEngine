@@ -10,8 +10,8 @@ class BuyNForFixedPrice:public PromotionRules
     public:
         BuyNForFixedPrice();
         BuyNForFixedPrice(string sku, int numberOfItems, int fixedPrice);
-        void Execute(Cart cart);
-        bool IsApplicable(Cart cart);
+        void Execute(Cart* cart);
+        bool IsApplicable(Cart* cart);
         string ToString();
 };
 
