@@ -1,51 +1,53 @@
 #include<Store.h>
-Store::Store(){
-    Cart cart = new Cart();
-    list<PromotionRules> Promotions;
+#include<stdexcept>
+using namespace std;
+Store::Store()
+{
+    Cart *cart = new Cart();
+    list<PromotionRules*> Promotions;
     list<SKUItem> Items;
 }
-Store Store::AddSKUitem(SKUitem item)
+Store Store::AddSKUitem(SKUItem item)
 {
-    if(item != NULL)
+//    if(item !=NULL)
         Items.push_back(item);
-    return this;
+    return *this;
 }
 
-Store Store::AddPromotions(List<PromotionRules> promotions)
+Store Store::AddPromotions(list<PromotionRules*> promotions)
 {
-    if(promotions!=NULL && promotions.size() > 0)
-        Promotions.push_back(promotions);
-    return this;
+    if(promotions.size() > 0)
+        Promotions.insert(Promotions.end(),promotions.begin(),promotions.end());
+    return *this;
 }
-Store Store::AddPromotion(PromotionRule promotion)
+Store Store::AddPromotion(PromotionRules* promotion)
 {
-    if ( promotion != null ) Promotions.Add(promotion);
-    return this;
+    if ( promotion )
+        Promotions.push_back(promotion);
+    return *this;
 }
 
 Store Store::AddPromotion(string promotion)
 {
-    if (Regex.IsMatch(promotion, @"^\d"))
+    if (true)//write proper regex
     {
-        AddPromotion(promotion.ToNitemForFixedPricePromotion());
+        AddPromotion(promotion.BuyNForFixedPrice());
     }
     else
     {
-        AddPromotion(promotion.ToCombinedItemFixedPricePromotion());
+        AddPromotion(promotion.TotalFixedPrice());
     }
-    return this;
+    return *this;
 }
 
 Store Store::DeletePromotion(string promotion)
 {
-    auto promotionIndex = Promotions.
-    
     std::list<PromotionRules>::iterator it;
     it = std::find(Promotions.begin(), Promotions.end(), promotion);
-    
+
     if(it == Promotions.end())
         throw std::invalid_argument("Promotion not found!");
-    Promotions.erase(promotionIndex);
+    Promotions.erase(*it);
 }
 
 Store Store::AddItemToCart(string itemSKU)
@@ -55,34 +57,34 @@ Store Store::AddItemToCart(string itemSKU)
     if(itemSKU!= NULL)
     {
         std::list<SKUItem>::iterator it;
-        it = std::find (Items.begin(), Items.end(), itemSKU);
+        it = std::find(Items.begin(), Items.end(), itemSKU);
         cart.AddItem(*it);
     }
-    return this;
+    return *this;
 }
 
 Store Store::EmptyCart()
 {
-    Cart = new Cart();
-    return this;
+    cart = new Cart();
+    return *this;
 }
 
 Store Store::Checkout()
 {
     //Promotions.ForEach(p => { if (p.IsApplicable(Cart)) p.Execute(Cart); });
-    return this;
+    return *this;
 }
 
-List<SKUitem> GetSKUitems()
+list<SKUItem> Store::GetSKUitems()
 {
     return Items;
 }
 void Store::UpdateSKUitemUnitPrice(string sku, float price)
 {
-    if (!IsValidSKU(sku)) 
+    if (!IsValidSKU(sku))
         throw std::invalid_argument("SKU not found!!!");
 
-    for(item:Items)
+    for(SKUItem *item:Items)
     {
         if(sku.compare(item.ID))
         {
@@ -93,9 +95,9 @@ void Store::UpdateSKUitemUnitPrice(string sku, float price)
 
 void Store::DeleteSKUitem(string sku)
 {
-    if (!IsValidSKU(sku)) 
+    if (!IsValidSKU(sku))
         throw std::invalid_argument("SKU not found!!!");
-    
+
     std::list<SKUItem>::iterator it;
     it = std::find(Items.begin(), Items.end(), sku);
 
@@ -103,20 +105,20 @@ void Store::DeleteSKUitem(string sku)
 }
 
 
-List<PromotionRule> GetPromotions()
+list<PromotionRules> Store::GetPromotions()
 {
     return Promotions;
 }
 
-List<SKUitem> GetAllItems()
+list<SKUItem> Store::GetAllItems()
 {
     return Items;
 }
-SKUitem Store::GetItem(string sku)
+SKUItem Store::GetItem(string sku)
 {
-    if (!IsValidSKU(sku)) 
+    if (!IsValidSKU(sku))
         throw std::invalid_argument("SKU not found!!!");
-    
+
     std::list<PromotionRules>::iterator it;
     it = std::find(Items.begin(), Items.end(), sku);
     return *it;
@@ -124,22 +126,23 @@ SKUitem Store::GetItem(string sku)
 
 void Store::DeleteItemFromCart(string sku)
 {
-    if (!IsValidSKU(sku)) 
+    if (!IsValidSKU(sku))
         throw std::invalid_argument("SKU not found!!!");
-    Cart.RemoveItem(sku);
+    cart.RemoveItem(sku);
 }
-        
-float Store::GetCartTotal()
+
+double Store::GetCartTotal()
 {
-    return Cart.TotalPrice;
+    return cart.TotalPrice;
 }
 
 Cart Store::GetCart()
 {
-    return Cart;
+    return cart;
 }
 
 bool Store::IsValidSKU(string sku)
 {
-    return Items.Any(i => sku.Equals(i.ID));
+//    return (Items.Any(i => sku.Equals(i.ID)));
+      return true;
 }
