@@ -8,9 +8,9 @@ class Cart
 {
     private:
         list<CartItem> Items;
-        double TotalPrice;
     public:
         Cart();
+        double TotalPrice();
         void AddItem(SKUItem item);
         void AddItems(SKUItem item,int noOfItems);
         void RemoveItem(string skuItemId);
