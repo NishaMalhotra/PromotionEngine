@@ -8,9 +8,10 @@ class Cart
 {
     private:
         list<CartItem> ItemList;
+        double TotalPrice;
     public:
         Cart();
-        double TotalPrice();
+        
         void AddItem(SKUItem item);
         void RemoveItem(string skuItemId);
         bool IsValidSKU(string sku);
