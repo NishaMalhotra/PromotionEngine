@@ -10,7 +10,9 @@ class CartItem
     SKUItem Item;
   public:
     CartItem(){}
-    CartItem(SKUItem Item,){
-      
+    CartItem(SKUItem item,double price,bool promo){
+      Item = item;
+      FinalPrice = price;
+      PromotionApplied = promo;
     }
 };
