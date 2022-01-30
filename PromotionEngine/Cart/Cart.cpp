@@ -3,7 +3,7 @@
 #include<string>
 Cart::Cart()
 {
-    list<CartItem> Items;
+    //list<CartItem> Items;
 }
 double Cart::TotalPrice()
 {
