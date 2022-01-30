@@ -4,7 +4,7 @@ using namespace std;
 class CartItem
 {
   public:
-    bool ApplyPromotion();
-    double totalPrice();
-    SKUItem Item();
+    bool PromotionApplied;
+    double FinalPrice;
+    SKUItem Item;
 };
