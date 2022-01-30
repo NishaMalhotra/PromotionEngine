@@ -17,10 +17,10 @@ BuyNForFixedPrice::BuyNForFixedPrice(string sku, int numberOfItems, int fixedPri
     FixedPrice = fixedPrice;
 }
 
-void BuyNForFixedPrice::Execute(Cart cart)
+void BuyNForFixedPrice::Execute(Cart* cart)
 {
-    float discountItemPrice = FixedPrice / NumberOfItems;
-    float residue = 0.0;
+    double discountItemPrice = FixedPrice / NumberOfItems;
+    double residue = 0.0;
 
     while (IsApplicable(cart))
     {
@@ -34,7 +34,7 @@ void BuyNForFixedPrice::Execute(Cart cart)
     }
 }
 
-bool BuyNForFixedPrice::IsApplicable(Cart cart)
+bool BuyNForFixedPrice::IsApplicable(Cart* cart)
 {
     //return !IsEmptyCart(cart) &&
     return !IsEmptyCart(cart) &&
