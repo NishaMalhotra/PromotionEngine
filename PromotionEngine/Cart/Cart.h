@@ -12,6 +12,7 @@ class Cart
     public:
         Cart();
         void AddItem(SKUItem item);
+        void AddItems(SKUItem item,int noOfItems);
         void RemoveItem(string skuItemId);
         bool IsValidSKU(string sku);
 };
