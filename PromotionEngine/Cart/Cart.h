@@ -7,7 +7,7 @@ using namespace std;
 class Cart
 {
     private:
-        list<CartItem> ItemList();
+        list<CartItem> ItemList;
     public:
         Cart();
         double TotalPrice();
