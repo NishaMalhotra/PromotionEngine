@@ -7,8 +7,10 @@ Cart::Cart()
 }
 double Cart::TotalPrice()
 {
-    return 
-    //get { return Items.Sum(i => i.FinalPrice); }
+    double total_price;
+    for(auto i:Items)
+        total_price+=i.FinalPrice;
+    return total_price;
 }
 bool Cart::IsValidSKU(string sku)
 {
