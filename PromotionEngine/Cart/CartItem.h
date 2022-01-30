@@ -4,8 +4,13 @@
 using namespace std;
 class CartItem
 {
-  public:
+  private:
     bool PromotionApplied;
     double FinalPrice;
     SKUItem Item;
+  public:
+    CartItem(){}
+    CartItem(SKUItem Item,){
+      
+    }
 };
