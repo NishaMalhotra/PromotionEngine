@@ -3,6 +3,10 @@
 using namespace std;
 class BuyNForFixedPrice:public PromotionRules
 {
+    private:
+        string SKU;
+        int NumberOfItems;
+        int FixedPrice;
     public:
         BuyNForFixedPrice();
         BuyNForFixedPrice(string sku, int numberOfItems, int fixedPrice);
