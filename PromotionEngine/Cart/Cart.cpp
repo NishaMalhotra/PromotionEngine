@@ -14,7 +14,12 @@ double Cart::TotalPrice()
 }
 bool Cart::IsValidSKU(string sku)
 {
-    return Items.Any(i => sku.Equals(i.Item.ID));
+    for(auto i:Items)
+    {
+        if(i.Item.ID == sku)
+            return true;
+    }
+    return false;
 }
 
 
