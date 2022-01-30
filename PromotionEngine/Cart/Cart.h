@@ -11,7 +11,6 @@ class Cart
         double TotalPrice;
     public:
         Cart();
-        
         void AddItem(SKUItem item);
         void RemoveItem(string skuItemId);
         bool IsValidSKU(string sku);
